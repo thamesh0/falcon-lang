@@ -1,0 +1,67 @@
+// comments begin with a double forwardslash and end with a linefeed.
+// there aren't multiline comments as of now
+
+// indentifiers can have the following characters:
+abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ01234567890_
+
+// an indentifier cannnot begin with any of the following characters:
+// 0123456789
+
+// functions are defined as follows:
+function foo(first_arg of type, second_arg of type) returns type {
+    // function code in between braces
+    return ___;
+}
+
+// there is no void type so if function doesn't return anything its written as
+function foo(first_arg of type, second_arg of type) {
+   // function ... 
+}
+
+// main function
+// entry-point of the program, there can be only one main() in a given program
+// main() doesn't return anything and doesnt need the function keyword 
+main() {
+
+}
+function variable_definitions() {
+    // the following syntax is used to define a variable:
+    variable_name of type;   -> declare (doesnt allocate memory)
+    variable_name of type := expression; -> declare and initialize (allocates memory)
+}
+
+function expressions() {
+    // the following operators can be used in expressions.
+    // they are read with descending precedence.
+    //
+    // `(` `)`     : parentheses (LTR).
+    // `!`         : logical negation (RTL).
+    // `*` `/` `%` : multiplication (LTR), division (LTR), remainder (LTR).
+    // `+` `-`     : addition (LTR), subtraction (LTR).
+    // `&` `|` `^` : logical AND (LTR), logical OR (LTR), logical XOR (LTR).
+    // `=`         : assignment (RTL).
+    // `:=`        : initialize (RTL)
+    // expressions are terminated by semicolons.
+    // see the below example:
+    a of int32 := 0;
+    b of int32 := 0;
+    c of bool := false;
+
+    b = a = 32; // `a` is assigned to `32`, then `b` is assigned to `a`.
+    c = a & b; // `c` is assigned to the result of `32 & 32`, `true`.
+    a = a * 2; // `a` is multiplied by `2`.
+    b = b / 2; // `b` is divided by `2`.
+}
+
+function raw_c_insertion() {
+    raw {
+        int a = 0, b = 0, c = 0;
+        a = b = 32;
+        c = a && b;
+        a *= 2;
+        b *= 2;
+
+        /* this is raw C code. */
+        printf("(a, b, c) = (%d, %d, %d)\n" a, b, c);
+    }
+}
