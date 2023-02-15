@@ -1,3 +1,3 @@
 # falcon-lang
-Simple programming language written in C
+Taking a crack writing my own programming language - a Simple programming language written in C
 
